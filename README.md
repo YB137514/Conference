@@ -66,7 +66,8 @@ We can filter for intersection of sets of results from queries using `==` operat
       # incomplete key of the simplest form, this should be OK.
       return False
     return self._equivalent(other)
-    ```
+
+```
 
 See [NDB source code] [4] for full implementation details. 
  
