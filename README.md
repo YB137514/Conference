@@ -1,4 +1,4 @@
-Conference application
+# Conference application
 
 ## Setup Instructions
 1. Update the value of `application` in `app.yaml` to the app ID you
@@ -16,21 +16,21 @@ Conference application
 1. Deploy your application.
 
 
-## Task 1: Design Choices for Session Class
-Conference sessions are modeled by Session class. 
+## Task 1: Design Choices for `Session` class
+Conference sessions are modeled by `Session` class. 
 
 Sessions are modeled as events that do not span multiple days in contrast to 
 Conferences that can last longer than a day. 
 
-`date` property of a Session class specifies a date when a session takes place. The type of this member is DateProperty and not DateTime property as sessions start time is modeled by a different property--`startTime`. 
+`date` property of a `Session` specifies a date when a session takes place. The type of this member is `DateProperty` and not `DateTime` property as sessions start time is modeled by a different property--`startTime`. 
 
-`startTime` specifies start time of a session. Only subclass of DateTime property type, i.e., TimeProperty is chosen for this member as session's date is modeled by a different member. 
+`startTime` specifies start time of a session. Only subclass of `DateTime` property type, i.e., `TimeProperty` is chosen for this member as session's date is modeled by a different member. 
 
 
-All other properties of a Session class are of type StringProperty including Session speaker. 
-Session speaker is modeled by "speaker" member of the class Session. 
+All other properties of a `Session` class are of type `StringProperty` including Session speaker. 
+Session speaker is modeled by `speaker` member of the class `Session`. 
 
-`speaker` is of StringProperty type--a flexible choice since this type is a unicode string up to 1500 bytes. 
+`speaker` is of `StringProperty` type--a flexible choice since this type is a unicode string up to 1500 bytes. 
 
 ## Task 2: Session Wishlist
 See Add session to Wishlist -- line 701 in `conference.py`. 
@@ -47,7 +47,7 @@ Users are able to quickly find the sessions that features their favorite speaker
 Multiple inequality filters can only be applied to the same property in NDB database. 
 When a single query contains inequality filters on more than one property datastore rejects it. 
 
-In a presented original query problem inequalities(`!=` and `>`) are applied to two properties of the Session class: `typeofSession` and `startTime`. 
+In a presented original query problem inequalities(`!=` and `>`) are applied to two properties of the `Session` class: `typeofSession` and `startTime`. 
 
 One proposed solution is to break down an original query into two separate queries where each query applies inequality only to a single property. 
 Intersection of resultant sets of these queries will be a solution to an original problem.
