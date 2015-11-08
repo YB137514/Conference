@@ -53,9 +53,9 @@ One proposed solution is to break down an original query into two separate queri
 Intersection of resultant sets of these queries will be a solution to an original problem.
 
 We can filter for intersection of sets of results from queries using `==` operator in Python because all 3 points apply:
-1.  Session query results are of type Session
-2.  Session class inherits from ndb.Model class
-3.  ndb.Model class implements equality comparison method below: 
+   1. Session query results are of type `Session`
+   1. `Session` class inherits from `ndb.Model` 
+   1. `ndb.Model` class implements equality comparison method below: 
 ```
   def __eq__(self, other):
     """Compare two entities of the same class for equality."""
@@ -71,9 +71,9 @@ We can filter for intersection of sets of results from queries using `==` operat
 
 See [NDB source code] [4] for full implementation details. 
  
-For implementation of proposed solution to original query problem see problemQuery endpoint
+For implementation of proposed solution to original query problem see `problemQuery` endpoint
 
-conference.py --line 794 -- Solution to query related problem
+`conference.py` --line 794 -- Solution to query related problem
 
 
 
