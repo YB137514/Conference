@@ -22,14 +22,14 @@ Conference sessions are modeled by `Session` class.
 Sessions are modeled as events that do not span multiple days in contrast to 
 Conferences that can last longer than a day. 
 
-`date` property of a `Session` specifies a date when a session takes place. The type of this member is `DateProperty` and not `DateTime` as sessions start time is modeled by a different property--`startTime`. 
+`date` property of a `Session` specifies a date when a session takes place. The type of this member is `DateProperty` and not `DateTime` as sessions start time is modeled by a separate`startTime` property. 
 
-`startTime` specifies start time of a session. Only subclass of `DateTime` property type, i.e., `TimeProperty` is chosen for this member as session's date is modeled by a different member. 
+`startTime` specifies start time of a session. 24 hour notations is used so it can be ordered. 
 
 All other properties of a `Session` class are of type `StringProperty` including Session speaker. 
 Session speaker is modeled by `speaker` member of the class `Session`. 
 
-`speaker` is of `StringProperty` type -- a flexible choice since this type is a unicode string up to 1500 bytes. 
+StringProperty` type for speaker is a flexible choice since this type is a unicode string up to 1500 bytes. 
 
 ## Task 2: Session Wishlist
 See Add session to Wishlist -- line 701 in `conference.py`. 
