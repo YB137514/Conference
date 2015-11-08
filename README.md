@@ -70,7 +70,8 @@ We can filter for intersection of sets of results from queries using `==` operat
 
 See [NDB source code] [4] for full implementation details. 
  
-For implementation of proposed solution to original query problem see `problemQuery` endpoint
+For implementation of proposed solution to original query problem see `problemQuery` endpoint.
+
 In `conference.py` the source code starts from line 794
 
 
