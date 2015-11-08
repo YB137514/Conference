@@ -29,7 +29,7 @@ Conferences that can last longer than a day.
 All other properties of a `Session` class are of type `StringProperty` including Session speaker. 
 Session speaker is modeled by `speaker` member of the class `Session`. 
 
-StringProperty` type for speaker is a flexible choice since this type is a unicode string up to 1500 bytes. 
+`StringProperty` type for speaker is a flexible choice since this type is a unicode string up to 1500 bytes. 
 
 ## Task 2: Session Wishlist
 See Add session to Wishlist -- line 701 in `conference.py`. 
