@@ -142,6 +142,7 @@ class SessionForm(messages.Message):
     # (in 24 hour notation so it can be ordered).
     startTime = messages.StringField(7)
     websafeConferenceKey = messages.StringField(8)
+    websafeSessionKey = messages.StringField(9)
 
 
 # Multiple sessionsForm classes can be used for messaging

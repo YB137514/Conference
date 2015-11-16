@@ -33,13 +33,13 @@ class SendConfirmationEmailHandler(webapp2.RequestHandler):
                 'conferenceInfo')
         )
 
+
 # This task will set featured speaker and assosiated sessions in memcache
-
-
 class Featured_Speaker(webapp2.RequestHandler):
 
     def post(self):
-        """Place featured speaker in memcache."""
+        """Make a speaker a feature speaker if he/she presents more than
+        once at a conference"""
         safe_key = self.request.get('conference_key')
         conf = ndb.Key(urlsafe=safe_key).get()
 
@@ -51,15 +51,19 @@ class Featured_Speaker(webapp2.RequestHandler):
 
         # Find sessions associated with featured speaker
         sessions = Session.query(ancestor=c_key)
-        session_names = sessions.filter(Session.speaker == speaker)
-        featured_speaker = '%s %s\n %s %s' % (
-            'New Featured Speaker is: ', speaker,
-            'Presenting on the following topics:\n',
-            ', \n'.join(name.name for name in session_names))
+        # Return the number of times that the speaker is speaking
+        num_of_times_speaking = sessions.filter(
+            Session.speaker == speaker).count()
+        if num_of_times_speaking > 1:
+            session_names = sessions.filter(Session.speaker == speaker)
+            featured_speaker = '%s %s\n %s %s' % (
+                'New Featured Speaker is: ', speaker,
+                'Presenting on the following topics:\n',
+                ', \n'.join(name.name for name in session_names))
 
-        # Set featured speaker in memcache
-        memcache.set(MEMCACHE_FEATURED_SPEAKER, featured_speaker)
-        self.response.set_status(204)
+            # Set featured speaker in memcache
+            memcache.set(MEMCACHE_FEATURED_SPEAKER, featured_speaker)
+            self.response.set_status(204)
 
 
 app = webapp2.WSGIApplication([
