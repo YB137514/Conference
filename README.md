@@ -32,14 +32,14 @@ Session speaker is modeled by `speaker` member of the class `Session`.
 `StringProperty` type for speaker is a flexible choice since this type is a unicode string up to 1500 bytes. 
 
 ## Task 2: Session Wishlist
-See Add session to Wishlist -- line 701 in `conference.py`. 
+See `addSessionToWishlist` -- line 692 in `conference.py`. 
 Please note that session is added to wishlist by supplying a Session entity Key, not ID. 
 
 ## Task 3: Additional Queries
-1. Retrieve wishlist by type: `getWishlistbyType` -- line 752 in `conference.py`.
+1. Retrieve wishlist by type: `getWishlistbyType` -- line 739 in `conference.py`.
 Users are able to retrive sessions that they added to wishlist by type of session, such as Lecture, workshop etc. 
 
-2. Retrieve wishlist by speaker: `getWishlistbySpeaker` -- line 773 in `conference.py`. 
+2. Retrieve wishlist by speaker: `getWishlistbySpeaker` -- line 764 in `conference.py`. 
 Users are able to quickly find the sessions that features their favorite speaker that they added to wishlist. 
 
 ## Task 3: Query Problem
